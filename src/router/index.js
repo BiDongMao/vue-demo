@@ -35,29 +35,29 @@ const mainRoutes = {
     // 提示: 如需要通过iframe嵌套展示内容, 但不通过tab打开, 请自行创建组件使用iframe处理!
     { path: '/home', component: _import('common/home'), name: 'home', meta: { title: '首页' } },
     { path: '/theme', component: _import('common/theme'), name: 'theme', meta: { title: '主题' } },
-
     { path: '/demo-communication', component: _import('demo/communication'), name: 'demo-communication', meta: { title: '父子组件通信', isTab: true } },
     { path: '/demo-nextTick', component: _import('demo/nextTick'), name: 'demo-nextTick', meta: { title: 'nextTick', isTab: true } },
     { path: '/demo-custom', component: _import('demo/CustomComponents/index'), name: 'demo-custom', meta: { title: '自定义组件', isTab: true } },
+    { path: '/demo-tableFormValidate', component: _import('demo/tableFormValidate'), name: 'demo-tableFormValidate', meta: { title: '表格内表单验证', isTab: true } },
+    { path: '/demo-uploadField', component: _import('demo/uploadField'), name: 'demo-uploadField', meta: { title: '上传图片文件', isTab: true } },
+    { path: '/demo-default', component: _import('demo/default/list'), name: 'demo-default', meta: { title: '基础列表表单', isTab: true } },
+
+
 
     { path: '/plugins-echarts', component: _import('plugins/echarts'), name: 'plugins-echarts', meta: { title: 'plugins-echarts', isTab: true } },
-    { path: '/plugins-ueditor', component: _import('plugins/ueditor'), name: 'plugins-ueditor', meta: { title: 'plugins-ueditor', isTab: true } },
+    // { path: '/plugins-ueditor', component: _import('plugins/ueditor'), name: 'plugins-ueditor', meta: { title: 'plugins-ueditor', isTab: true } },
+    { path: '/plugins-vueNeditorWrap', component: _import('plugins/vueNeditorWrap'), name: 'plugins-vueNeditorWrap', meta: { title: '富文本框', isTab: true } },
     { path: '/plugins-vuex', component: _import('plugins/vuex/index'), name: 'plugins-vuex', meta: { title: 'vuex状态管理', isTab: true } },
     { path: '/plugins-fullCalendar', component: _import('plugins/fullCalendar'), name: 'plugins-fullCalendar', meta: { title: '富日历表', isTab: true } },
     { path: '/plugins-formMaking', component: _import('plugins/formMaking'), name: 'plugins-formMaking', meta: { title: '自定义表单', isTab: true } },
     { path: '/plugins-sortTable', component: _import('plugins/sortTable/sortTable01'), name: 'plugins-sortTable', meta: { title: '可拖拽表格01', isTab: true } },
     { path: '/plugins-dragTreeTable', component: _import('plugins/sortTable/sortTable02/tree'), name: 'plugins-dragTreeTable', meta: { title: '可拖拽树形表格', isTab: true } },
     { path: '/plugins-treeOrg', component: _import('plugins/treeOrg'), name: 'plugins-treeOrg', meta: { title: '组织架构树图', isTab: true } },
-    { path: '/plugins-htmlToCanvas', component: _import('plugins/htmlToCanvas'), name: 'plugins-htmlToCanvas', meta: { title: 'html转换成图片', isTab: true } }
+    { path: '/plugins-htmlToCanvas', component: _import('plugins/htmlToCanvas'), name: 'plugins-htmlToCanvas', meta: { title: 'html转换成图片', isTab: true } },
+    { path: '/plugins-print', component: _import('plugins/print'), name: 'plugins-print', meta: { title: '打印', isTab: true } },
 
 
-
-
-
-
-
-
-
+    
   ],
   beforeEnter (to, from, next) {
     let token = Vue.cookie.get('token')
@@ -68,6 +68,31 @@ const mainRoutes = {
     next()
   }
 }
+const sideNavList=[
+  {menuId:1, path: '', component: _import('common/home'), name: 'DEMO', meta: { title: 'DEMO' } ,list:[
+    { path: '/demo-communication', component: _import('demo/communication'), name: 'demo-communication', meta: { title: '父子组件通信', isTab: true } },
+    { path: '/demo-nextTick', component: _import('demo/nextTick'), name: 'demo-nextTick', meta: { title: 'nextTick', isTab: true } },
+    { path: '/demo-custom', component: _import('demo/CustomComponents/index'), name: 'demo-custom', meta: { title: '自定义组件', isTab: true } },
+    { path: '/demo-tableFormValidate', component: _import('demo/tableFormValidate'), name: 'demo-tableFormValidate', meta: { title: '表格内表单验证', isTab: true } },
+    { path: '/demo-uploadField', component: _import('demo/uploadField'), name: 'demo-uploadField', meta: { title: '上传图片文件', isTab: true } },
+    { path: '/demo-default', component: _import('demo/default/list'), name: 'demo-default', meta: { title: '基础列表表单', isTab: true } },
+
+  ]},
+  { menuId:2,  path: '', component: _import('common/home'), name: 'Plugins', meta: { title: 'Plugins' } ,list:[
+    { path: '/plugins-echarts', component: _import('plugins/echarts'), name: 'plugins-echarts', meta: { title: 'plugins-echarts', isTab: true } },
+    // { path: '/plugins-ueditor', component: _import('plugins/ueditor'), name: 'plugins-ueditor', meta: { title: 'plugins-ueditor', isTab: true } },
+    { path: '/plugins-vuex', component: _import('plugins/vuex/index'), name: 'plugins-vuex', meta: { title: 'vuex状态管理', isTab: true } },
+    { path: '/plugins-fullCalendar', component: _import('plugins/fullCalendar'), name: 'plugins-fullCalendar', meta: { title: '富日历表', isTab: true } },
+    { path: '/plugins-formMaking', component: _import('plugins/formMaking'), name: 'plugins-formMaking', meta: { title: '自定义表单', isTab: true } },
+    { path: '/plugins-sortTable', component: _import('plugins/sortTable/sortTable01'), name: 'plugins-sortTable', meta: { title: '可拖拽表格01', isTab: true } },
+    { path: '/plugins-dragTreeTable', component: _import('plugins/sortTable/sortTable02/tree'), name: 'plugins-dragTreeTable', meta: { title: '可拖拽树形表格', isTab: true } },
+    { path: '/plugins-treeOrg', component: _import('plugins/treeOrg'), name: 'plugins-treeOrg', meta: { title: '组织架构树图', isTab: true } },
+    { path: '/plugins-htmlToCanvas', component: _import('plugins/htmlToCanvas'), name: 'plugins-htmlToCanvas', meta: { title: 'html转换成图片', isTab: true } },
+    { path: '/plugins-print', component: _import('plugins/print'), name: 'plugins-print', meta: { title: '打印导出', isTab: true } },
+    { path: '/plugins-vueNeditorWrap', component: _import('plugins/vueNeditorWrap'), name: 'plugins-vueNeditorWrap', meta: { title: '富文本框', isTab: true } },
+
+  ]},
+]
 
 const router = new Router({
   mode: 'hash',
@@ -83,26 +108,28 @@ router.beforeEach((to, from, next) => {
   if (router.options.isAddDynamicMenuRoutes || fnCurrentRouteType(to, globalRoutes) === 'global') {
     next()
   } else {
-    http({
-      url: http.adornUrl('/sys/menu/nav'),
-      method: 'get',
-      params: http.adornParams()
-    }).then(({data}) => {
-      if (data && data.code === 0) {
-        fnAddDynamicMenuRoutes(data.menuList)
-        router.options.isAddDynamicMenuRoutes = true
-        sessionStorage.setItem('menuList', JSON.stringify(data.menuList || '[]'))
-        sessionStorage.setItem('permissions', JSON.stringify(data.permissions || '[]'))
-        next({ ...to, replace: true })
-      } else {
-        sessionStorage.setItem('menuList', '[]')
-        sessionStorage.setItem('permissions', '[]')
-        next()
-      }
-    }).catch((e) => {
-      console.log(`%c${e} 请求菜单列表和权限失败，跳转至登录页！！`, 'color:blue')
-      router.push({ name: 'login' })
-    })
+    next()
+    sessionStorage.setItem('sideNavList', JSON.stringify(sideNavList|| '[]'))
+    // http({
+    //   url: http.adornUrl('/sys/menu/nav'),
+    //   method: 'get',
+    //   params: http.adornParams()
+    // }).then(({data}) => {
+    //   if (data && data.code === 0) {
+    //     fnAddDynamicMenuRoutes(data.menuList)
+    //     router.options.isAddDynamicMenuRoutes = true
+    //     sessionStorage.setItem('menuList', JSON.stringify(data.menuList || '[]'))
+    //     sessionStorage.setItem('permissions', JSON.stringify(data.permissions || '[]'))
+    //     next({ ...to, replace: true })
+    //   } else {
+    //     sessionStorage.setItem('menuList', '[]')
+    //     sessionStorage.setItem('permissions', '[]')
+    //     next()
+    //   }
+    // }).catch((e) => {
+    //   console.log(`%c${e} 请求菜单列表和权限失败，跳转至登录页！！`, 'color:blue')
+    //   router.push({ name: 'login' })
+    // })
   }
 })
 

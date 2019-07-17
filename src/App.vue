@@ -28,6 +28,7 @@ import mixins_role from './mixins/role.js';
     },
     mounted () {
       this.getUserInfo();
+      // this.$cookie.set('token', 'fjuerif2349857fijoewijf')
     }
   }
 </script>

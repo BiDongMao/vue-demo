@@ -10,7 +10,7 @@
           <icon-svg name="shouye" class="site-sidebar__menu-icon"></icon-svg>
           <span slot="title">首页</span>
         </el-menu-item>
-        <el-submenu index="demo">
+        <!-- <el-submenu index="demo">
           <template slot="title">
             <icon-svg name="shoucang" class="site-sidebar__menu-icon"></icon-svg>
             <span>demo</span>
@@ -28,8 +28,8 @@
             <span slot="title">自定义组件</span>
           </el-menu-item>
 
-        </el-submenu>
-        <el-submenu index="plugins">
+        </el-submenu> -->
+        <!-- <el-submenu index="plugins">
           <template slot="title">
             <icon-svg name="shoucang" class="site-sidebar__menu-icon"></icon-svg>
             <span>plugins</span>
@@ -70,13 +70,13 @@
             <icon-svg name="editor" class="site-sidebar__menu-icon"></icon-svg>
             <span slot="title">html转换成图片</span>
           </el-menu-item>
-        </el-submenu>
-        <!-- <sub-menu
-          v-for="menu in menuList"
+        </el-submenu> -->
+        <sub-menu
+          v-for="menu in sideNavList"
           :key="menu.menuId"
           :menu="menu"
-          :dynamicMenuRoutes="dynamicMenuRoutes">
-        </sub-menu> -->
+          :dynamicMenuRoutes="sideNavList">
+        </sub-menu>
       </el-menu>
     </div>
   </aside>
@@ -88,7 +88,8 @@
   export default {
     data () {
       return {
-        dynamicMenuRoutes: []
+        dynamicMenuRoutes: [],
+        sideNavList:[]
       }
     },
     components: {
@@ -124,6 +125,9 @@
     created () {
       this.menuList = JSON.parse(sessionStorage.getItem('menuList') || '[]')
       this.dynamicMenuRoutes = JSON.parse(sessionStorage.getItem('dynamicMenuRoutes') || '[]')
+      this.sideNavList = JSON.parse(sessionStorage.getItem('sideNavList') || '[]')
+      console.log(this.sideNavList)
+
       this.routeHandle(this.$route)
     },
     methods: {

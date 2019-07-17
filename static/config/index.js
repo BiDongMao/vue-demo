@@ -5,7 +5,7 @@
   window.SITE_CONFIG = {}
 
   // api接口请求地址
-  window.SITE_CONFIG['baseUrl'] = 'https://admin.cloth.ruiztech.cn/ruiz'
+  window.SITE_CONFIG['baseUrl'] = 'http://dl.ruiztech.cn/ruiz/'
 
   // cdn地址 = 域名 + 版本号
   window.SITE_CONFIG['domain'] = './' // 域名

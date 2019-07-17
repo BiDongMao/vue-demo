@@ -32,12 +32,12 @@
   .box{
     height: 500px;
     overflow: hidden;
-    background: #f00;
+    background: #f58928;
   }
   .main{
     height: 1000px;
     overflow: auto;
-    background: #0f0;
+    background: #f8f8f8;
 
   }
   .child{

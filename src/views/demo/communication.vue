@@ -30,7 +30,7 @@ import ChildAttrs from './components/child-attrs'
       return {
         message:'from parent 动态值',
         childMessage:'',
-        userName:''
+        userName:'3333'
 
       }
     },

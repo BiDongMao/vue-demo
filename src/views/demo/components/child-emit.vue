@@ -24,7 +24,11 @@
     methods: {
       changeData(){
         this.message+="改变"
-        this.$emit("listenChildData",this.message)
+        // this.$emit("listenChildData",this.message)
+        // this.$listeners.listenChildData()
+        console.log(this.$parent)
+        this.$parent.getData(this.message)
+
       },
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="mod-demo-ueditor">
+  <div class="mod-plugins-ueditor">
     <el-alert
       title="提示："
       type="warning"
@@ -11,7 +11,7 @@
     </el-alert>
 
     <script :id="ueId" class="ueditor-box" type="text/plain" style="width: 100%; height: 260px;">hello world!</script>
-    
+
     <!-- 获取内容 -->
     <p><el-button @click="getContent()">获得内容</el-button></p>
     <el-dialog

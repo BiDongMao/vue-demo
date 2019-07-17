@@ -1,6 +1,6 @@
 <template>
   <div class="mod-child-props">
-    <h1>3. .sync 修饰符(实现双向数据绑定)</h1>
+    <h1>3. .sync 修饰符(实现双向数据绑定){{name}}</h1>
     子组件：<el-input v-model="text" ></el-input>
 
     <div>说明：在 vue@1.x 的时候曾作为双向绑定功能存在，

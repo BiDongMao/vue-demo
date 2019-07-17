@@ -5,7 +5,7 @@
     :popper-class="'site-sidebar--' + sidebarLayoutSkin + '-popper'">
     <template slot="title">
       <icon-svg :name="menu.icon || ''" class="site-sidebar__menu-icon"></icon-svg>
-      <span>{{ menu.name }}</span>
+      <span>{{ menu.meta.title }}</span>
     </template>
     <sub-menu
       v-for="item in menu.list" 
@@ -14,9 +14,9 @@
       :dynamicMenuRoutes="dynamicMenuRoutes">
     </sub-menu>
   </el-submenu>
-  <el-menu-item v-else :index="menu.menuId + ''" @click="gotoRouteHandle(menu)">
+  <el-menu-item v-else :index="menu.menuId + ''" @click="gotoRouteHandle(menu.name)">
     <icon-svg :name="menu.icon || ''" class="site-sidebar__menu-icon"></icon-svg>
-    <span>{{ menu.name }}</span>
+    <span>{{ menu.meta.title }}</span>
   </el-menu-item>
 </template>
 
@@ -44,12 +44,16 @@
     },
     methods: {
       // 通过menuId与动态(菜单)路由进行匹配跳转至指定路由
-      gotoRouteHandle (menu) {
-        var route = this.dynamicMenuRoutes.filter(item => item.meta.menuId === menu.menuId)
-        if (route.length >= 1) {
-          this.$router.push({ name: route[0].name })
-        }
+      gotoRouteHandle (name) {
+         this.$router.push({ name: name })
       }
     }
   }
 </script>
+<style <style lang="scss" scoped>
+.site-sidebar__menu{
+  .el-submenu{
+    display: block;
+  }
+}
+</style>
