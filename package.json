@@ -27,7 +27,7 @@
     "gulp-shell": "0.6.5",
     "html2canvas": "^1.0.0-alpha.12",
     "js-cookie": "^2.2.0",
-    "lodash": "4.17.5",
+    "lodash": "4.17.15",
     "node-sass": "4.9.0",
     "print-js": "^1.0.61",
     "sass-loader": "6.0.6",
