@@ -25,7 +25,8 @@ export default {
       totalPage: 0,                   // 总条数
       dataListLoading: false,     // 数据列表，loading状态
       dataListSelections: [],     // 数据列表，多选项
-      addOrUpdateVisible: false   // 新增／更新，弹窗visible状态
+      addOrUpdateVisible: false,  // 新增／更新，弹窗visible状态
+      formType:1                  // 新增表单，详情页呈现类型 1-弹窗形式，2-跳转子页形式
     }
     /* eslint-enable */
   },
@@ -87,15 +88,30 @@ export default {
       this.getDataList()
     },
     // 新增 / 修改
-    addOrUpdateHandle (id) {
-      this.addOrUpdateVisible = true
+    onAddOrUpdateClick (id) {
+      if(this.formType===1){//弹窗形式
+        this.addOrUpdateVisible = true
+        this.$nextTick(() => {
+          this.$refs.addOrUpdate.dataForm.id = id
+          this.$refs.addOrUpdate.init(id)
+        })
+      }else if(this.formType===2){//子页形式
+        this.$emit("update:showView","addOrUpdate")
+        this.$nextTick(() => {
+          this.$parent.$refs.addOrUpdate.init(id)
+        })
+      }
+     
+    },
+    // 跳转到详情页
+    jumpDetail(){
+      this.$emit("update:showView","detail")
       this.$nextTick(() => {
-        this.$refs.addOrUpdate.dataForm.id = id
-        this.$refs.addOrUpdate.init(id)
+        this.$parent.$refs.detail.init(id)
       })
     },
     // 删除
-    deleteHandle (id) {
+    onDeleteClick (id) {
       var Ids = id ? [id] : this.dataListSelections.map(item => {
         return item[this.mixinViewModuleOptions.deleteIsBatchKey]
       })
