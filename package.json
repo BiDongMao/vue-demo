@@ -28,7 +28,7 @@
     "html2canvas": "^1.0.0-alpha.12",
     "js-cookie": "^2.2.0",
     "lodash": "4.17.5",
-    "node-sass": "4.9.0",
+    "node-sass": "4.14.1",
     "print-js": "^1.0.61",
     "sass-loader": "6.0.6",
     "sortable.js": "^0.3.0",
